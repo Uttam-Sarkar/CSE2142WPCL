@@ -106,5 +106,8 @@ public class StudentList {
 			} 
 			System.out.println("Data Loaded.");				
 		}
+		else{
+			System.out.println("Your input data is wrong.\nPlease enter the correct input (a, r, ? or +) : " );
+		}
 	}
 }
