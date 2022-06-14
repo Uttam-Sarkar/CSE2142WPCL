@@ -93,7 +93,8 @@ public class StudentList {
 				if(studentNameChar ==' ')
 				{
 					if (!in_word) {
-						count++; in_word =true;
+						count++; 
+						in_word =true;
 					}
 					else { 
 					in_word=false;
