@@ -5,8 +5,7 @@ public abstract class Constant {
     public static String ShowCount = "-c";
     public static String FindEntry = "?";
     public static String AddEntry = "+";
-    public static String StrudentEntryDelimiter = ", ";
-    public static String StrudentEntryDelimiter2 = " ,";
+    public static String StrudentEntryDelimiter = ",";
     public static String LoadingMessage = "Loading data ...";
     public static String DataLoadedMessage = "Data Loaded.";
     public static String DataFoundMessage = "We found it!";

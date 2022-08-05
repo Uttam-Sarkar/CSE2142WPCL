@@ -1,15 +1,15 @@
 import java.io.*;
 import java.text.*;
 import java.util.*;
+
 public class StudentList {
 	public static void main(String[] args) {
-
 //		Check arguments
 		if(args[0].equals(Constant.ShowAll)) {
 			System.out.println(Constant.LoadingMessage);
 			try {
-				String studentNamesLine = getString();
-				String studentNames[] = studentNamesLine.split(Constant.StrudentEntryDelimiter);
+				//String studentNamesLine = getString();
+				String[] studentNames = getString().split(Constant.StrudentEntryDelimiter);
 			for(String student : studentNames) {
 				System.out.println(student);
 			}
@@ -22,12 +22,11 @@ public class StudentList {
 		{
 			System.out.println(Constant.LoadingMessage);
 			try {
-				String studentNamesLine = getString();
-
-				//System.out.println(studentNamesLine);
-			String studentNames[] = studentNamesLine.split(Constant.StrudentEntryDelimiter);
-			Random x = new Random();
-			int y = (Math.abs(x.nextInt()) % 2 + 2) % 3;
+				//String studentNamesLine = getString();
+			String[] studentNames = getString().split(Constant.StrudentEntryDelimiter);
+			//Random x = new Random();
+			int y = Math.abs(new Random().nextInt()%3);
+			//int y = (Math.abs(x.nextInt()) % 2 + 2) % 3;
 			System.out.println(studentNames[y]);
 			} catch (Exception e){
 			
@@ -39,12 +38,13 @@ public class StudentList {
 			try {
 			BufferedWriter bufferedWriter = new BufferedWriter(
 				new FileWriter(Constant.StudentList, true));
-			String studentName = args[0].substring(1);
-	       	Date date = new Date();
-	      		String dateLayout = Constant.DateFormate;
-	        	DateFormat dateFormat = new SimpleDateFormat(dateLayout);
-	        	String dateUpdate = dateFormat.format(date);
-			bufferedWriter.write(Constant.StrudentEntryDelimiter2 + studentName+ Constant.LastUpdateMessage + dateUpdate);
+			//String studentName = args[0].substring(1);
+	       //	Date date = new Date();
+	      		//String dateLayout = Constant.DateFormate;
+	        	DateFormat dateFormat = new SimpleDateFormat(Constant.DateFormate);
+	        	String dateUpdate = dateFormat.format(new Date());
+			bufferedWriter.write(Constant.StrudentEntryDelimiter + args[0].substring(1) + Constant.LastUpdateMessage + dateUpdate);
+
 			bufferedWriter.close();
 			} catch (Exception e){
 			
@@ -55,9 +55,8 @@ public class StudentList {
 		{
 			System.out.println(Constant.LoadingMessage);
 			try {
-				String studentNamesLine = getString();
-
-				String studentNames[] = studentNamesLine.split(Constant.StrudentEntryDelimiter);
+			//	String studentNamesLine = getString();
+				String[] studentNames = getString().split(Constant.StrudentEntryDelimiter);
 			boolean done = false;
 			String studentName = args[0].substring(1);
 			for(int idx = 0; idx<studentNames.length && !done; idx++) {
@@ -75,9 +74,8 @@ public class StudentList {
 		{
 			System.out.println(Constant.LoadingMessage);
 			try {
-				String studentNamesLine = getString();
-
-				char studentNamesToCharArray[] = studentNamesLine.toCharArray();
+				//String studentNamesLine = getString();
+				char[] studentNamesToCharArray = getString().toCharArray();
 			boolean in_word = false;
 			int count=0;
 			for(char studentNameChar:studentNamesToCharArray) {
@@ -107,7 +105,6 @@ public class StudentList {
 		BufferedReader bufferedReader = new BufferedReader(
 			new InputStreamReader(
 				new FileInputStream(Constant.StudentList)));
-		String studentNamesLine = bufferedReader.readLine();
-		return studentNamesLine;
+		return bufferedReader.readLine();
 	}
 }
