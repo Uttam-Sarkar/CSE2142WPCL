@@ -25,8 +25,7 @@ public class StudentList {
 				//String studentNamesLine = getString();
 			String[] studentNames = getString().split(Constant.StrudentEntryDelimiter);
 			//Random x = new Random();
-			int y = Math.abs(new Random().nextInt()%3);
-			//int y = (Math.abs(x.nextInt()) % 2 + 2) % 3;
+			int y = Math.abs(new Random().nextInt()%(studentNames.length));
 			System.out.println(studentNames[y]);
 			} catch (Exception e){
 			
@@ -57,12 +56,12 @@ public class StudentList {
 			try {
 			//	String studentNamesLine = getString();
 				String[] studentNames = getString().split(Constant.StrudentEntryDelimiter);
-			boolean done = false;
 			String studentName = args[0].substring(1);
-			for(int idx = 0; idx<studentNames.length && !done; idx++) {
-				if(studentNames[idx].equals(studentName)) {
+
+			for (String name : studentNames) {
+				if (name.trim().equals(studentName)) {
 					System.out.println(Constant.DataFoundMessage);
-					done=true;
+					break;
 				}
 			}
 			} catch (Exception e){
@@ -82,12 +81,12 @@ public class StudentList {
 				if(studentNameChar ==' ')
 				{
 					if (!in_word) {
-						count++; 
+						count++;
 						in_word =true;
 					}
-					else { 
+					else {
 						in_word=false;
-					}			
+					}
 				}
 			}
 			System.out.println(count + Constant.WordsFoundMessage );
