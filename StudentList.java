@@ -8,7 +8,6 @@ public class StudentList {
 		if(args[0].equals(Constant.ShowAll)) {
 			System.out.println(Constant.LoadingMessage);
 			try {
-				//String studentNamesLine = getString();
 				String[] studentNames = getString().split(Constant.StrudentEntryDelimiter);
 			for(String student : studentNames) {
 				System.out.println(student);
@@ -22,9 +21,7 @@ public class StudentList {
 		{
 			System.out.println(Constant.LoadingMessage);
 			try {
-				//String studentNamesLine = getString();
 			String[] studentNames = getString().split(Constant.StrudentEntryDelimiter);
-			//Random x = new Random();
 			int y = Math.abs(new Random().nextInt()%(studentNames.length));
 			System.out.println(studentNames[y]);
 			} catch (Exception e){
@@ -37,9 +34,6 @@ public class StudentList {
 			try {
 			BufferedWriter bufferedWriter = new BufferedWriter(
 				new FileWriter(Constant.StudentList, true));
-			//String studentName = args[0].substring(1);
-	       //	Date date = new Date();
-	      		//String dateLayout = Constant.DateFormate;
 	        	DateFormat dateFormat = new SimpleDateFormat(Constant.DateFormate);
 	        	String dateUpdate = dateFormat.format(new Date());
 			bufferedWriter.write(Constant.StrudentEntryDelimiter + args[0].substring(1) + Constant.LastUpdateMessage + dateUpdate);
@@ -54,7 +48,6 @@ public class StudentList {
 		{
 			System.out.println(Constant.LoadingMessage);
 			try {
-			//	String studentNamesLine = getString();
 				String[] studentNames = getString().split(Constant.StrudentEntryDelimiter);
 			String studentName = args[0].substring(1);
 
@@ -73,9 +66,7 @@ public class StudentList {
 		{
 			System.out.println(Constant.LoadingMessage);
 			try {
-				//String studentNamesLine = getString();
 				char[] studentNamesToCharArray = getString().toCharArray();
-			boolean in_word = false;
 			int count=1;
 			for(char studentNameChar:studentNamesToCharArray) {
 				if(studentNameChar ==' ')
