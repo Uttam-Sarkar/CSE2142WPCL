@@ -76,20 +76,14 @@ public class StudentList {
 				//String studentNamesLine = getString();
 				char[] studentNamesToCharArray = getString().toCharArray();
 			boolean in_word = false;
-			int count=0;
+			int count=1;
 			for(char studentNameChar:studentNamesToCharArray) {
 				if(studentNameChar ==' ')
 				{
-					if (!in_word) {
-						count++;
-						in_word =true;
-					}
-					else {
-						in_word=false;
-					}
+					count++;
 				}
 			}
-			System.out.println(count + Constant.WordsFoundMessage );
+			System.out.println(count/2 + Constant.WordsFoundMessage );
 			} catch (Exception e){
 			
 			} 
